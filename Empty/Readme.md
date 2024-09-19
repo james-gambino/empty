@@ -38,30 +38,30 @@
 Пример работы GenericBuilder.PrintProperties(typeof(Document)):
 - `Id: `<br>`  
   Type: Int32 `<br>`
-  Version: `<br>`
+  Version: `<br>`  
   Type: String `<br>`
-  Name: `<br>`
+  Name: `<br>`  
   Type: String `<br>`
-  Bank: `<br>`
-  Id: `<br>`
+  Bank: `<br>`  
+  Id: `<br>`  
   Type: Int32 `<br>`
-  Name: `<br>`
+  Name: `<br>`  
   Type: String `<br>`
-  Bik: `<br>`
+  Bik: `<br>`  
   Type: String `<br>`
-  Inn: `<br>`
+  Inn: `<br>`  
   Type: String `<br>`
-  Seller: `<br>`
-  Id: `<br>`
+  Seller: `<br>`  
+  Id: `<br>`  
   Type: Int32 `<br>`
-  Name: `<br>`
+  Name: `<br>`  
   Type: String `<br>`
-  Contacts: `<br>`
-  Id: `<br>`
+  Contacts: `<br>`  
+  Id: `<br>`  
   Type: Int32 `<br>`
-  Emails: `<br>`
+  Emails: `<br>`  
   Type: IList 1 `<br>`
-  Phones: `<br>`
+  Phones: `<br>`  
   Type: IList `<br>`
 
 
