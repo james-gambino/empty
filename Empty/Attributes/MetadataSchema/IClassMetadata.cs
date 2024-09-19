@@ -2,6 +2,6 @@ namespace Empty.Attributes.MetadataSchema;
 
 public interface IClassMetadata
 {
-    void TakeSchema();
+    void TakeSchema(object instance);
     void PrintProperties();
 }

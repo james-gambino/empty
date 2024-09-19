@@ -7,9 +7,9 @@ public class ClassMetadataSchemaAttribute(Type classType) : Attribute, IClassMet
 {
     private Type _classType = classType;
 
-    public void TakeSchema()
+    public void TakeSchema(object instance)
     {
-        // var result = ClassMetadataSchemaHelper.TakeSchema(this._instance);
+        var result = ClassMetadataSchemaHelper.TakeSchema(instance);
     }
 
     public void PrintProperties()
