@@ -35,7 +35,7 @@
   Name = 'Document Title 1'
   GROUP BY d.Id`
 
-Пример работы GenericBuilder.PrintProperties(typeof(Document)):
+`GenericBuilder.PrintProperties(typeof(Document))` Пример работы:
 - `Id: `<br>`  
   Type: Int32 `<br>`
   Version: `<br>`  
