@@ -62,8 +62,4 @@
   Emails: `<br>`  
   Type: IList 1 `<br>`
   Phones: `<br>`  
-  Type: IList `<br>`
-
-
-
-
+  Type: IList `

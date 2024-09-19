@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Reflection;
 
-namespace Empty;
+namespace Empty.Helpers;
 
-public static class GenericBuilder
+public static class ClassMetadataSchemaHelper
 {
-    // Метод для создания метаданных на основе экземпляра класса
-    public static ClassMetadata CreateMetadata(object instance)
+    public static ClassMetadata TakeSchema(object instance)
     {
         Type objType = instance.GetType();
         PropertyInfo[] properties = objType.GetProperties();
@@ -52,7 +51,7 @@ public static class GenericBuilder
 
                 // Рекурсивно создаем метаданные для связанных объектов
                 if (propertyValue != null) {
-                    var relatedMetadata = CreateMetadata(propertyValue);
+                    var relatedMetadata = TakeSchema(propertyValue);
                     metadata.NavigationProperties.Last().ClassMetadata = relatedMetadata;
                 }
             }
@@ -61,7 +60,7 @@ public static class GenericBuilder
             {
                 var itemType = property.PropertyType.GenericTypeArguments[0];
                 var collectionMetadata =
-                    CreateMetadata(Activator.CreateInstance(typeof(List<>).MakeGenericType(itemType))); // CollectionMetadata
+                    TakeSchema(Activator.CreateInstance(typeof(List<>).MakeGenericType(itemType))); // CollectionMetadata
 
                 var navPropertyMetadataCollection = new NavigationPropertyMetadata
                 {
@@ -106,27 +105,6 @@ public static class GenericBuilder
             {
                 // For primitive types or other types, display a placeholder for value
                 Console.WriteLine("{0}  Type: {1}", indentString, property.PropertyType.Name);
-            }
-        }
-    }
-    
-
-    private class CollectionMetadata<T> : ClassMetadata
-    {
-        public CollectionMetadata(object collection)
-        {
-            ClassName = typeof(T).Name;
-            Namespace = typeof(T).Namespace;
-            Properties = new List<PropertyMetadata>();
-
-            var items = (IEnumerable)collection;
-            var index = 0;
-
-            foreach (var item in items)
-            {
-                var itemMetadata = CreateMetadata(item);
-                Properties.AddRange(itemMetadata.Properties);
-                index++;
             }
         }
     }

@@ -1,6 +1,9 @@
+using Empty.Attributes.MetadataSchema;
+
 namespace Empty;
 
-public class Document
+[ClassMetadataSchema(typeof(Document))]
+public class Document 
 {
     public int Id { get; set; }
     public string Version { get; set; }
@@ -10,6 +13,7 @@ public class Document
     // public Person Buyer { get; set; }
 }
 
+[ClassMetadataSchema(typeof(Bank))]
 public class Bank
 {
     public int Id { get; set; }
@@ -18,6 +22,7 @@ public class Bank
     public string Inn { get; set; }
 }
 
+[ClassMetadataSchema(typeof(Person))]
 public class Person
 {
     public int Id { get; set; }
@@ -25,6 +30,7 @@ public class Person
     public Contacts Contacts { get; set; }
 }
 
+[ClassMetadataSchema(typeof(Contacts))]
 public class Contacts
 {
     public int Id { get; set; }
@@ -32,12 +38,14 @@ public class Contacts
     public IList<Phone> Phones { get; set; }
 }
 
+[ClassMetadataSchema(typeof(Email))]
 public class Email
 {
     public int Id { get; set; }
     public string Value { get; set; }
 }
 
+[ClassMetadataSchema(typeof(Phone))]
 public class Phone
 {
     public int Id { get; set; }

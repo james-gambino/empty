@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Empty;
+using Empty.Helpers;
 
 internal class Program
 {
@@ -17,22 +18,27 @@ internal class Program
         // Buyer = new Person { Id = 1, Name = "Buyer Name", Contacts = new Contacts { Id = 2, Emails = new List<Email> { new Email { Id = 2, Value = "buyer@example.com" } }, Phones = new List<Phone> { new Phone { Id = 2, Value = "+987654321" } } } },
         
         // Генерация Метаданных на основе экземпляра класса
-        var documentMetadata = GenericBuilder.CreateMetadata(document1);
-        documentMetadata.FilterCriterias.Add(new FilterCriteria {
-            PropertyName = nameof(Document.Name),
-            Operator = "=",
-            Value = "Document Title 1"
-        });
+        // var documentMetadata = GenericBuilder.CreateMetadata(document1);
+        // documentMetadata.FilterCriterias.Add(new FilterCriteria {
+        //     PropertyName = nameof(Document.Name),
+        //     Operator = "=",
+        //     Value = "Document Title 1"
+        // });
+        //
+        //
+        // // Генерация HQL-запроса на основе метаданных и фильтров
+        // HqlQueryBuilder hqlQueryBuilder = new HqlQueryBuilder();
+        // string hqlQueryResult = hqlQueryBuilder.BuildQuery(documentMetadata);
+        //
+        // // Пример вывода информации о метаданных документа и HQL-запроса
+        // Console.WriteLine("Сгенерированный HQL запрос:");
+        // Console.WriteLine(hqlQueryResult);
+        //
+        // GenericBuilder.PrintProperties(typeof(Document), 0);
         
+        // var snapshots = ClassMetadataSchemaHelper.TakeSchema(document1);
         
-        // Генерация HQL-запроса на основе метаданных и фильтров
-        HqlQueryBuilder hqlQueryBuilder = new HqlQueryBuilder();
-        string hqlQueryResult = hqlQueryBuilder.BuildQuery(documentMetadata);
-
-        // Пример вывода информации о метаданных документа и HQL-запроса
-        Console.WriteLine("Сгенерированный HQL запрос:");
-        Console.WriteLine(hqlQueryResult);
+        MetadataProcessor.Process<Document>();
         
-        GenericBuilder.PrintProperties(typeof(Document), 0);
     }
 }
