@@ -10,7 +10,7 @@ public static class MetadataProcessor
         if (attribute != null)
         {
             // Call PrintProperties method on the instance
-            attribute.PrintProperties(); // Indent by 2 spaces
+            attribute.PrintProperties();
         }
         else
         {
@@ -18,9 +18,9 @@ public static class MetadataProcessor
         }
     }
     
-    public static void Process<T>(object instance) where T : class, new()
+    public static void Process(object instance)
     {
-        var type = typeof(T);
+        Type type = instance.GetType();
         var attribute = type.GetCustomAttributes(typeof(ClassMetadataSchemaAttribute), false).FirstOrDefault() as ClassMetadataSchemaAttribute;
 
         if (attribute != null)

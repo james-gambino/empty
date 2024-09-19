@@ -39,7 +39,7 @@ internal class Program
         // var snapshots = ClassMetadataSchemaHelper.TakeSchema(document1);
         
         MetadataProcessor.Process<Document>();
-        MetadataProcessor.Process<Document>(document1);
+        MetadataProcessor.Process(document1);
         
     }
 }
