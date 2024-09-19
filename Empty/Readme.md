@@ -35,3 +35,35 @@
   Name = 'Document Title 1'
   GROUP BY d.Id`
 
+Пример работы GenericBuilder.PrintProperties(typeof(Document)):
+- `Id: `<br>`  
+  Type: Int32 `<br>`
+  Version: `<br>`
+  Type: String `<br>`
+  Name: `<br>`
+  Type: String `<br>`
+  Bank: `<br>`
+  Id: `<br>`
+  Type: Int32 `<br>`
+  Name: `<br>`
+  Type: String `<br>`
+  Bik: `<br>`
+  Type: String `<br>`
+  Inn: `<br>`
+  Type: String `<br>`
+  Seller: `<br>`
+  Id: `<br>`
+  Type: Int32 `<br>`
+  Name: `<br>`
+  Type: String `<br>`
+  Contacts: `<br>`
+  Id: `<br>`
+  Type: Int32 `<br>`
+  Emails: `<br>`
+  Type: IList 1 `<br>`
+  Phones: `<br>`
+  Type: IList `<br>`
+
+
+
+

@@ -32,5 +32,7 @@ internal class Program
         // Пример вывода информации о метаданных документа и HQL-запроса
         Console.WriteLine("Сгенерированный HQL запрос:");
         Console.WriteLine(hqlQueryResult);
+        
+        GenericBuilder.PrintProperties(typeof(Document), 0);
     }
 }

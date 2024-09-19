@@ -29,7 +29,7 @@ public static class GenericBuilder
                     OriginalName = property.Name,
                     Caption = property.Name, // описание
                     Type = property.PropertyType.Name,
-                    Value = propertyValue,
+                    Value = propertyValue ?? null,
                 };
 
                 metadata.Properties.Add(propertyMetadata);
@@ -78,6 +78,38 @@ public static class GenericBuilder
         
         return metadata;
     }
+    
+    public static void PrintProperties(Type objType, int indent)
+    {
+        if (objType == null) return;
+
+        string indentString = new string(' ', indent);
+        PropertyInfo[] properties = objType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+        foreach (PropertyInfo property in properties)
+        {
+            // Displaying the property name
+            Console.WriteLine("{0}{1}:", indentString, property.Name);
+
+            // Check if the property is a collection
+            if (typeof(IEnumerable).IsAssignableFrom(property.PropertyType) && property.PropertyType != typeof(string))
+            {
+                // If it's a collection, we can display its type but not its elements since we don't have an instance
+                Console.WriteLine("{0}  Type: {1}", indentString, property.PropertyType.Name);
+            }
+            else if (property.PropertyType.IsClass && property.PropertyType.Assembly == objType.Assembly)
+            {
+                // If it's a class from the same assembly, recursively print its properties
+                PrintProperties(property.PropertyType, indent + 2);
+            }
+            else
+            {
+                // For primitive types or other types, display a placeholder for value
+                Console.WriteLine("{0}  Type: {1}", indentString, property.PropertyType.Name);
+            }
+        }
+    }
+    
 
     private class CollectionMetadata<T> : ClassMetadata
     {

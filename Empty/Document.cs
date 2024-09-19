@@ -6,7 +6,7 @@ public class Document
     public string Version { get; set; }
     public string Name { get; set; }
     public Bank Bank { get; set; }
-    // public Person Seller { get; set; }
+    public Person Seller { get; set; }
     // public Person Buyer { get; set; }
 }
 
