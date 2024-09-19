@@ -25,3 +25,13 @@
 - `PropertyName`: Имя свойства для фильтрации (`"Inn"`)
 - `Operator`: Оператор сравнения (например, =, >, LIKE) (`"BETWEEN"`)
 - `Value`: Значение для сравнения (`"10 AND 15"`)
+
+
+Сгенерированный HQL запрос:
+- `SELECT d
+  FROM Document d
+  LEFT JOIN d.Bank b
+  WHERE
+  Name = 'Document Title 1'
+  GROUP BY d.Id`
+
