@@ -6,8 +6,7 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        var document1 = new Document
-        {
+        var document1 = new Document {
             Id = 1,
             Version = "1.0",
             Name = "Document Title 1",
@@ -16,13 +15,15 @@ internal class Program
         
         // Seller = new Person { Id = 1, Name = "Seller Name", Contacts = new Contacts { Id = 1, Emails = new List<Email> { new Email { Id = 1, Value = "seller@gmail.com" } }, Phones = new List<Phone> { new Phone { Id = 1, Value = "+123456789" } } } },
         // Buyer = new Person { Id = 1, Name = "Buyer Name", Contacts = new Contacts { Id = 2, Emails = new List<Email> { new Email { Id = 2, Value = "buyer@example.com" } }, Phones = new List<Phone> { new Phone { Id = 2, Value = "+987654321" } } } },
-
+        
+        // Генерация Метаданных на основе экземпляра класса
         var documentMetadata = GenericBuilder.CreateMetadata(document1);
         documentMetadata.FilterCriterias.Add(new FilterCriteria {
             PropertyName = nameof(Document.Name),
             Operator = "=",
             Value = "Document Title 1"
         });
+        
         
         // Генерация HQL-запроса на основе метаданных и фильтров
         HqlQueryBuilder hqlQueryBuilder = new HqlQueryBuilder();
