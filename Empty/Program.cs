@@ -18,10 +18,18 @@ internal class Program
         // Buyer = new Person { Id = 1, Name = "Buyer Name", Contacts = new Contacts { Id = 2, Emails = new List<Email> { new Email { Id = 2, Value = "buyer@example.com" } }, Phones = new List<Phone> { new Phone { Id = 2, Value = "+987654321" } } } },
 
         var documentMetadata = GenericBuilder.CreateMetadata(document1);
+        documentMetadata.FilterCriterias.Add(new FilterCriteria {
+            PropertyName = nameof(Document.Name),
+            Operator = "=",
+            Value = "Document Title 1"
+        });
         
-        // Пример использования парсера для создания HQL-запроса
-        // HqlQueryBuilder hqlQueryBuilder = new HqlQueryBuilder();
-        // string hqlQueryResult = hqlQueryBuilder.BuildQuery(documentMetadata);
+        // Генерация HQL-запроса на основе метаданных и фильтров
+        HqlQueryBuilder hqlQueryBuilder = new HqlQueryBuilder();
+        string hqlQueryResult = hqlQueryBuilder.BuildQuery(documentMetadata);
 
+        // Пример вывода информации о метаданных документа и HQL-запроса
+        Console.WriteLine("Сгенерированный HQL запрос:");
+        Console.WriteLine(hqlQueryResult);
     }
 }

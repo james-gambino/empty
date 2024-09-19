@@ -13,7 +13,8 @@ public static class GenericBuilder
             ClassName = typeof(T).Name,
             Namespace = typeof(T).Namespace,
             Properties = new List<PropertyMetadata>(),
-            NavigationProperties = new List<NavigationPropertyMetadata>()
+            NavigationProperties = new List<NavigationPropertyMetadata>(),
+            FilterCriterias = new List<FilterCriteria>()
         };
         Console.WriteLine($"класс {metadata.ClassName} это навигационное свойство");
         foreach (var property in typeof(T).GetProperties())
