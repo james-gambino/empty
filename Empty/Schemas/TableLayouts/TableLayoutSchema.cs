@@ -3,6 +3,7 @@ using Empty;
 public class TableLayoutSchema
 {
     public string Name { get; set; } // Название таблицы
+    public string Model { get; set; } // Название модели Document
     public List<Field> Fields { get; set; } = new List<Field>(); // Список полей таблицы
     public List<Filter> Filters { get; set; } = new List<Filter>(); // Список фильтров для таблицы
     public List<Sort> Sorts { get; set; } = new List<Sort>(); // Список условий сортировки для таблицы
