@@ -7,13 +7,10 @@ public static class MetadataProcessor
         var type = typeof(T);
         var attribute = type.GetCustomAttributes(typeof(ClassMetadataSchemaAttribute), false).FirstOrDefault() as ClassMetadataSchemaAttribute;
 
-        if (attribute != null)
-        {
-            // Call PrintProperties method on the instance
+        if (attribute != null) {
             attribute.PrintProperties();
         }
-        else
-        {
+        else {
             Console.WriteLine($"No ClassMetadataSchemaAttribute found on {type.Name}.");
         }
     }
@@ -23,13 +20,10 @@ public static class MetadataProcessor
         Type type = instance.GetType();
         var attribute = type.GetCustomAttributes(typeof(ClassMetadataSchemaAttribute), false).FirstOrDefault() as ClassMetadataSchemaAttribute;
 
-        if (attribute != null)
-        {
-            // Call PrintProperties method on the instance
+        if (attribute != null) {
             attribute.TakeSchema(instance); // Indent by 2 spaces
         }
-        else
-        {
+        else {
             Console.WriteLine($"No ClassMetadataSchemaAttribute found on {type.Name}.");
         }
     }
